@@ -36,10 +36,10 @@ def read_training_data(
     )
     for i in range(start_index + 1, end_index):
         data = pd.read_csv(
-            pd.read_csv(os.path.join(directory_path, file_pattern.format(i)))
+            os.path.join(directory_path, file_pattern.format(i))
         )
         dataframe = pd.DataFrame(data)
-        csv_dataframe = pd.concat([csv_dataframe, dataframe], axis=0)
+        csv_dataframe = pd.concat([csv_dataframe, dataframe], axis=0, ignore_index=True)
     return csv_dataframe
 
 

@@ -146,12 +146,10 @@ def append_weather_data(
                 if not match.empty:
                     abridged_df.loc[i, weather_data] = match.iloc[0].values
                 else:
-                    for i in range(0, len(weather_data)):
-                        abridged_df.loc[i, weather_data[i]] = np.mean(
-                            weather_df.loc[weather_data[i]]
-                        )  # for some reason there's a couple missing days in the weather data
-        i = i + 1
-        data_point_cnt = data_point_cnt + 1
+
+                    for x in range(0, len(weather_data)):
+                        abridged_df.loc[i-1, weather_data[x]] =   # for some reason there's a couple missing days in the weather data
+
     return abridged_df
 
 
